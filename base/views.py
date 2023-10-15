@@ -3,9 +3,18 @@ from django.http import HttpResponse
 
 # Create your views here.
 
+rooms = [
+    {'id':1,"name": "new room"},
+    {'id':2,"name": "new room 1"},
+    {'id':3,"name": "new room 2"},
+    {'id':4,"name": "new room 3"},
+]
 
 def home(request):
-    return render(request,'home.html')
+    context = {'rooms': rooms}
+    return render(request,'base/home.html',context)
 
 def room(request):
-    return render(request,'room.html')
+    context = {'rooms': rooms}
+
+    return render(request,'base/room.html')
